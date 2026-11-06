@@ -22,32 +22,7 @@ function App() {
   const passwordRef = useRef(password)
   const mimicIndexRef = useRef(null)
   const mimicInitializedRef = useRef(false)
-  const [congoRuleActivated, setCongoRuleActivated] = useState(false)
-
-  useEffect(() => {
-    const normalize = (text) =>
-      String(text ?? "")
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/\s+/g, "")
-        .toLowerCase()
-
-    const lula = normalize("Luiz Inácio Lula da Silva")
-    if (
-      !congoRuleActivated &&
-      normalize(password).includes(lula)
-    ) {
-      const updatedPassword = password.replace(
-        /luiz\s+in[aá]cio\s+lula\s+da\s+silva/i,
-        ""
-      )
-
-      setPassword(updatedPassword)
-      setCongoRuleActivated(true)
-    }
-  }, 
   
-  [password, congoRuleActivated])
     const [captchaChecked, setCaptchaChecked] = useState(false)
     const [unlockedCount, setUnlockedCount] = useState(0)
 
@@ -57,7 +32,6 @@ function App() {
     password,
     captchaChecked,
     currentCaptcha.answer,
-    congoRuleActivated,
     mimicEliminated,
     fontRanges
   )

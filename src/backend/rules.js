@@ -133,7 +133,7 @@ const rules = [
         .toLowerCase()
         .replace(/\s+/g, "");
 
-      return normalizedPassword.includes("Félix Antoine Tshisekedi Tshilombo");
+      return normalizedPassword.includes("felixantoinetshisekeditshilombo");
     }
   },
   {
@@ -179,7 +179,7 @@ const rules = [
       return normalizedPassword.includes("1100001111011")
     }
   },
-  
+
   {
     id: 18,
     text: "A senha deve conter o nome dos desenvolvedores.",
